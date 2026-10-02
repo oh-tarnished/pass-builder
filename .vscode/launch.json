@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:pass-builder}",
+            "name": "Debug buildpass",
+            "target": "buildpass",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug buildpass"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:pass-builder}",
+            "name": "Release buildpass",
+            "target": "buildpass",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release buildpass"
+        }
+    ]
+}
