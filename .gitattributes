@@ -1,44 +1,6 @@
-# Normalize everything to LF in the repository and in the working tree.
-# Keeps `generate-protos.sh` and generated sources stable across platforms.
-* text=auto eol=lf
+# The ordinal ledger records which target slot every field was assigned. A
+# conflict in it means two branches each assigned a slot, and deciding which
+# wins is a compatibility decision -- so git must not guess by merging lines.
+buffers.lock -merge
 
-# Source
-*.swift     text diff=swift
-*.proto     text
-*.sh        text eol=lf
-*.md        text diff=markdown
-*.txt       text
-*.json      text
-*.yml       text
-*.yaml      text
-*.plist     text
-*.xcstrings text
-
-# Swift Package Manager
-Package.swift    text diff=swift
-Package.resolved text linguist-generated=true
-
-# protoc output: regenerate with ./generate-protos.sh rather than editing.
-# Collapsed in GitHub diffs and excluded from language stats, but still
-# diffable locally so regeneration can be reviewed.
-*.pb.swift linguist-generated=true
-
-# DocC catalogs are documentation, not Swift source, for language stats.
-**/*.docc/** linguist-documentation=true
-
-# Binary assets (pass packages and their contents, signing material)
-*.pkpass linguist-generated=true binary
-*.png    binary
-*.jpg    binary
-*.jpeg   binary
-*.pdf    binary
-*.zip    binary
-*.p12    binary
-*.pfx    binary
-*.cer    binary
-*.der    binary
-
-# Excluded from `git archive` / `swift package archive-source` tarballs
-/.gitattributes export-ignore
-/.gitignore     export-ignore
-/.vscode        export-ignore
+*.proto  linguist-detectable=true
